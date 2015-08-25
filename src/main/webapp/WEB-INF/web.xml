@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	id="WebApp_ID" version="3.0">
+
+
+	<display-name>Archetype Created Web Application</display-name>
+
+	<!-- Using different contexts and also avoiding duplicate initialization 
+		of beans -->
+
+	<!-- Context 1: Parent context - context-loader-listener to load the remaining 
+		beans -->
+	<!-- By default ContextLoaderListener loads the configuration from applicationContext.xml -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+	<!-- Context 2: Child context-1 - dispatcher-servlet-context to load the 
+		controllers and spring mvc -->
+	<!-- By default DispatcherServlet loads the configuration from <servlet-name>-servlet.xml -->
+	<servlet>
+		<servlet-name>dispatcher</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>dispatcher</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+
+</web-app>
