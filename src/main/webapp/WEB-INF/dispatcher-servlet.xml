@@ -4,33 +4,4 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
-	<context:component-scan base-package="com.jsrk.backup.server.controller" />
-
-	<bean id="tilesConfigurer"
-		class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
-		<property name="definitions">
-			<list>
-				<value>/WEB-INF/tiles.xml</value>
-			</list>
-		</property>
-	</bean>
-
-	<!-- Use tilesView to resolve views -->
-	<bean id="viewResolver"
-		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
-		<property name="viewClass"
-			value="org.springframework.web.servlet.view.tiles2.TilesView" />
-		<property name="order" value="1" />
-	</bean>
-
-	<!-- If tilesView cannot find the view, then use JstlView to resolve views -->
-	<bean
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="viewClass"
-			value="org.springframework.web.servlet.view.JstlView" />
-		<property name="prefix" value="/WEB-INF/views/" />
-		<property name="suffix" value=".jsp" />
-		<property name="order" value="2" />
-	</bean>
-
 </beans>
