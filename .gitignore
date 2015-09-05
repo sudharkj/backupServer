@@ -1,4 +1,5 @@
 .settings
 bin
+src/main/data/backup_schema.mwb.bak
 target
 .classpath
