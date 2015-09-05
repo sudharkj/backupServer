@@ -15,6 +15,7 @@
 
 		<org.springframework.version>4.2.0.RELEASE</org.springframework.version>
 		<servlet.version>3.1.0</servlet.version>
+		<jstl.version>1.2</jstl.version>
 		<ejb.version>3.2</ejb.version>
 		<!-- Using older versions of hibernate to avoid conflict between libraries -->
 		<hibernate.version>4.2.0.Final</hibernate.version>
@@ -49,6 +50,13 @@
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
 			<version>${servlet.version}</version>
+		</dependency>
+
+		<!-- JSP Standard Tag Library -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>${jstl.version}</version>
 		</dependency>
 
 		<!-- Contains ejb -->
