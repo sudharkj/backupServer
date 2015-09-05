@@ -12,5 +12,6 @@
 		<br />
 	Password: <form:input path="password" type="password" />
 		<br />
+		<button>Submit</button>
 	</form:form>
 </div>
