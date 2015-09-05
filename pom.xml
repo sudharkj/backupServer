@@ -15,6 +15,7 @@
 
 		<org.springframework.version>4.2.0.RELEASE</org.springframework.version>
 		<servlet.version>3.1.0</servlet.version>
+		<ejb.version>3.2</ejb.version>
 		<junit.version>4.12</junit.version>
 		<maven.war.version>2.6</maven.war.version>
 		<maven.compiler.version>3.3</maven.compiler.version>
@@ -36,6 +37,13 @@
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
 			<version>${servlet.version}</version>
+		</dependency>
+
+		<!-- Contains ejb -->
+		<dependency>
+			<groupId>javax.ejb</groupId>
+			<artifactId>javax.ejb-api</artifactId>
+			<version>${ejb.version}</version>
 		</dependency>
 
 		<!-- Unit testing framework for Java -->
