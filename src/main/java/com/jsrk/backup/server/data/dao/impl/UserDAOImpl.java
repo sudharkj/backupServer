@@ -12,6 +12,9 @@ import com.jsrk.backup.server.data.dao.UserDAO;
 import com.jsrk.backup.server.globals.TimeZoneConvertor;
 import com.jsrk.backup.server.model.User;
 
+/**
+ * Contains implementation of UserDAO
+ */
 @Repository
 public class UserDAOImpl implements UserDAO {
 

@@ -13,6 +13,9 @@ import org.springframework.web.servlet.ModelAndView;
 import com.jsrk.backup.server.data.service.UserService;
 import com.jsrk.backup.server.details.UserDetails;
 
+/**
+ * Contains controller-actions for user related requests.
+ */
 @Controller
 public class UserController {
 
@@ -23,6 +26,13 @@ public class UserController {
 		this.userService = userService;
 	}
 
+	/**
+	 * register - Returns a view where a user can register with the application.
+	 * 
+	 * @param model
+	 *            Model on which the attributes are to be set
+	 * @return Model with the concerned view and attributes
+	 */
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public ModelAndView registerUser(Model model) {
 		ModelAndView mv = new ModelAndView();
@@ -33,12 +43,25 @@ public class UserController {
 		return mv;
 	}
 
+	/**
+	 * insert_user - Registers a user with the application.
+	 * 
+	 * @param userDetails
+	 *            Details of the user who is to be registered
+	 * @param result
+	 *            Result after validating the userDetails
+	 * @param model
+	 *            Model on which attributes are to be set
+	 * @param request
+	 *            Request from the client
+	 * @return Model with the concerned view and attributes
+	 */
 	@RequestMapping(value = "/insert_user", method = RequestMethod.POST)
 	public ModelAndView insertUser(UserDetails userDetails,
 			BindingResult result, Model model, HttpServletRequest request) {
 		ModelAndView mv = new ModelAndView();
 
-		System.out.println(userService.insertUser(userDetails));
+		System.out.print(userService.insertUser(userDetails));
 
 		mv.setViewName("redirect:/register");
 

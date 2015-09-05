@@ -17,6 +17,9 @@ import com.jsrk.backup.server.globals.Response;
 import com.jsrk.backup.server.globals.ResponseCodes;
 import com.jsrk.backup.server.model.User;
 
+/**
+ * Contains implementation of UserService
+ */
 @Service
 public class UserServiceImpl implements UserService {
 
