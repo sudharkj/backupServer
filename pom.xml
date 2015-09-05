@@ -17,6 +17,7 @@
 		<servlet.version>3.1.0</servlet.version>
 		<jstl.version>1.2</jstl.version>
 		<ejb.version>3.2</ejb.version>
+		<apache.tiles.version>2.2.1</apache.tiles.version>
 		<!-- Using older versions of hibernate to avoid conflict between libraries -->
 		<hibernate.version>4.2.0.Final</hibernate.version>
 		<aspectj.version>1.8.6</aspectj.version>
@@ -64,6 +65,20 @@
 			<groupId>javax.ejb</groupId>
 			<artifactId>javax.ejb-api</artifactId>
 			<version>${ejb.version}</version>
+		</dependency>
+
+		<!-- Tiles Core Library, including basic implementation of the APIs -->
+		<dependency>
+			<groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-core</artifactId>
+			<version>${apache.tiles.version}</version>
+		</dependency>
+
+		<!-- Classes and tag libraries to use Tiles in a JSP environment -->
+		<dependency>
+			<groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-jsp</artifactId>
+			<version>${apache.tiles.version}</version>
 		</dependency>
 
 		<!-- The core ORM functionality as provided by Hibernate -->
