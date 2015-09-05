@@ -16,6 +16,11 @@
 		<org.springframework.version>4.2.0.RELEASE</org.springframework.version>
 		<servlet.version>3.1.0</servlet.version>
 		<ejb.version>3.2</ejb.version>
+		<!-- Using older versions of hibernate to avoid conflict between libraries -->
+		<hibernate.version>4.2.0.Final</hibernate.version>
+		<aspectj.version>1.8.6</aspectj.version>
+		<apache.dbcp2.version>2.1.1</apache.dbcp2.version>
+		<mysql.connector.version>5.1.36</mysql.connector.version>
 		<junit.version>4.12</junit.version>
 		<maven.war.version>2.6</maven.war.version>
 		<maven.compiler.version>3.3</maven.compiler.version>
@@ -28,6 +33,13 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+
+		<!-- Spring Object-to-Relation-Mapping (ORM) integration with Hibernate -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
 			<version>${org.springframework.version}</version>
 		</dependency>
 
@@ -44,6 +56,45 @@
 			<groupId>javax.ejb</groupId>
 			<artifactId>javax.ejb-api</artifactId>
 			<version>${ejb.version}</version>
+		</dependency>
+
+		<!-- The core ORM functionality as provided by Hibernate -->
+		<!-- If this jar is used by a request and the hibernate properties are 
+			not yet set, this checks for hibernate.properties in the resources folder 
+			of the project -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate.version}</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- Hibernate validator to use validations -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+
+		<!-- The AspectJ weaver introduces advices to java classes -->
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>${aspectj.version}</version>
+		</dependency>
+
+		<!-- Apache Commons DBCP software implements Database Connection Pooling -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-dbcp2</artifactId>
+			<version>${apache.dbcp2.version}</version>
+		</dependency>
+
+		<!-- MySQL JDBC Type 4 driver -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.connector.version}</version>
 		</dependency>
 
 		<!-- Unit testing framework for Java -->
