@@ -47,7 +47,7 @@ public class Response<Data> {
 
 	@Override
 	public String toString() {
-		return "Response [code=" + code + ", description=" + description
+		return "Response=[code=" + code + ", description=" + description
 				+ ", data=" + data + ", errors=" + errors + "]";
 	}
 

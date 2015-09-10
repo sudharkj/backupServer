@@ -61,7 +61,8 @@ public class UserController {
 			BindingResult result, Model model, HttpServletRequest request) {
 		ModelAndView mv = new ModelAndView();
 
-		System.out.print(userService.insertUser(userDetails));
+		System.out.println("\n\tRequest=[url=/insert_user, " + userDetails
+				+ "]\n\t" + userService.insertUser(userDetails));
 
 		mv.setViewName("redirect:/register");
 

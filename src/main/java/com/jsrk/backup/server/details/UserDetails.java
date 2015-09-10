@@ -32,4 +32,10 @@ public class UserDetails {
 		this.password = password;
 	}
 
+	@Override
+	public String toString() {
+		return "UserDetails=[id=" + id + ", username=" + username
+				+ ", password=" + password + "]";
+	}
+
 }
