@@ -2,6 +2,7 @@ package com.jsrk.backup.server.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +19,8 @@ import com.jsrk.backup.server.details.UserDetails;
  */
 @Controller
 public class UserController {
+
+	private static Logger logger = Logger.getLogger(UserController.class);
 
 	private UserService userService;
 
@@ -61,8 +64,8 @@ public class UserController {
 			BindingResult result, Model model, HttpServletRequest request) {
 		ModelAndView mv = new ModelAndView();
 
-		System.out.println("\n\tRequest=[url=/insert_user, " + userDetails
-				+ "]\n\t" + userService.insertUser(userDetails));
+		logger.info("\n\tRequest=[url=/insert_user, " + userDetails + "]\n\t"
+				+ userService.insertUser(userDetails));
 
 		mv.setViewName("redirect:/register");
 
