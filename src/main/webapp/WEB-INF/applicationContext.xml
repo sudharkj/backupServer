@@ -10,6 +10,8 @@
 	<context:component-scan base-package="com.jsrk.backup.server">
 		<context:exclude-filter type="regex"
 			expression="com\.jsrk\.backup\.server\.controller.*" />
+		<context:exclude-filter type="regex"
+			expression="com\.jsrk\.backup\.server\.aspect.*" />
 	</context:component-scan>
 
 	<!-- Loading properties from properties file -->

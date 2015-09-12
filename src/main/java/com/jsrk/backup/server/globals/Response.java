@@ -11,6 +11,8 @@ public class Response<Data> {
 
 	private Data data;
 
+	private String viewName;
+
 	private List<String> errors = new ArrayList<String>(0);
 
 	public Integer getCode() {
@@ -37,6 +39,14 @@ public class Response<Data> {
 		this.data = data;
 	}
 
+	public String getViewName() {
+		return viewName;
+	}
+
+	public void setViewName(String viewName) {
+		this.viewName = viewName;
+	}
+
 	public List<String> getErrors() {
 		return errors;
 	}
@@ -48,7 +58,8 @@ public class Response<Data> {
 	@Override
 	public String toString() {
 		return "Response=[code=" + code + ", description=" + description
-				+ ", data=" + data + ", errors=" + errors + "]";
+				+ ", data=" + data + ", viewName=" + viewName + ", errors="
+				+ errors + "]";
 	}
 
 }

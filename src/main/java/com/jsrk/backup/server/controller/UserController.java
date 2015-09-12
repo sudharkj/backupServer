@@ -2,7 +2,6 @@ package com.jsrk.backup.server.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,8 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.jsrk.backup.server.data.service.UserService;
+import com.jsrk.backup.server.controller.introduction.UserControllerIntroduction;
 import com.jsrk.backup.server.details.UserDetails;
+import com.jsrk.backup.server.globals.Request;
+import com.jsrk.backup.server.globals.Response;
+import com.jsrk.backup.server.model.User;
 
 /**
  * Contains controller-actions for user related requests.
@@ -20,13 +22,12 @@ import com.jsrk.backup.server.details.UserDetails;
 @Controller
 public class UserController {
 
-	private static Logger logger = Logger.getLogger(UserController.class);
-
-	private UserService userService;
+	private UserControllerIntroduction userControllerIntroduction;
 
 	@Autowired
-	public void setUserService(UserService userService) {
-		this.userService = userService;
+	public void setUserControllerIntroduction(
+			UserControllerIntroduction userControllerIntroduction) {
+		this.userControllerIntroduction = userControllerIntroduction;
 	}
 
 	/**
@@ -38,10 +39,16 @@ public class UserController {
 	 */
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public ModelAndView registerUser(Model model) {
-		ModelAndView mv = new ModelAndView();
 
-		mv.setViewName("insert-user");
-		model.addAttribute("userDetails", new UserDetails());
+		ModelAndView mv = new ModelAndView();
+		Request<Integer> request = new Request<Integer>();
+		request.setUrl("/register");
+
+		Response<UserDetails> response = userControllerIntroduction
+				.registerUser(request);
+
+		mv.setViewName(response.getViewName());
+		model.addAttribute("userDetails", response.getData());
 
 		return mv;
 	}
@@ -61,13 +68,19 @@ public class UserController {
 	 */
 	@RequestMapping(value = "/insert_user", method = RequestMethod.POST)
 	public ModelAndView insertUser(UserDetails userDetails,
-			BindingResult result, Model model, HttpServletRequest request) {
+			BindingResult result, Model model,
+			HttpServletRequest httpServletRequest) {
+
 		ModelAndView mv = new ModelAndView();
+		Request<UserDetails> request = new Request<UserDetails>();
 
-		logger.info("\n\tRequest=[url=/insert_user, " + userDetails + "]\n\t"
-				+ userService.insertUser(userDetails));
+		request.setUrl("/insert_user");
+		request.setData(userDetails);
 
-		mv.setViewName("redirect:/register");
+		Response<User> response = userControllerIntroduction
+				.insertUser(request);
+
+		mv.setViewName(response.getViewName());
 
 		return mv;
 	}
