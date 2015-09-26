@@ -42,7 +42,7 @@ public class UserController {
 
 		ModelAndView mv = new ModelAndView();
 		Request<Integer> request = new Request<Integer>();
-		request.setUrl("/show-register");
+		request.setUrl("/show_register");
 
 		Response<UserDetails> response = userControllerIntroduction
 				.registerUser(request);
