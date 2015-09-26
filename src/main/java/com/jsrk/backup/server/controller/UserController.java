@@ -37,12 +37,12 @@ public class UserController {
 	 *            Model on which the attributes are to be set
 	 * @return Model with the concerned view and attributes
 	 */
-	@RequestMapping(value = "/register", method = RequestMethod.GET)
+	@RequestMapping(value = "/show_register", method = RequestMethod.GET)
 	public ModelAndView registerUser(Model model) {
 
 		ModelAndView mv = new ModelAndView();
 		Request<Integer> request = new Request<Integer>();
-		request.setUrl("/register");
+		request.setUrl("/show-register");
 
 		Response<UserDetails> response = userControllerIntroduction
 				.registerUser(request);
@@ -81,6 +81,29 @@ public class UserController {
 				.insertUser(request);
 
 		mv.setViewName(response.getViewName());
+
+		return mv;
+	}
+
+	/**
+	 * show_login - Returns a view for the user to login
+	 * 
+	 * @param model
+	 *            Model on which the attributes are to be set
+	 * @return Model with the concerned view and attributes
+	 */
+	@RequestMapping(value = "/show_login", method = RequestMethod.GET)
+	public ModelAndView showLogin(Model model) {
+
+		ModelAndView mv = new ModelAndView();
+		Request<Integer> request = new Request<Integer>();
+		request.setUrl("/show_login");
+
+		Response<UserDetails> response = userControllerIntroduction
+				.showLogin(request);
+
+		mv.setViewName(response.getViewName());
+		model.addAttribute("userDetails", response.getData());
 
 		return mv;
 	}

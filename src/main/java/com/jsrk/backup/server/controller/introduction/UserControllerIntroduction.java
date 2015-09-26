@@ -35,7 +35,17 @@ public class UserControllerIntroduction {
 	public Response<User> insertUser(Request<UserDetails> request) {
 
 		Response<User> response = userService.insertUser(request.getData());
-		response.setViewName("redirect:/register");
+		response.setViewName("redirect:/show_register");
+
+		return response;
+
+	}
+
+	public Response<UserDetails> showLogin(Request<Integer> request) {
+
+		Response<UserDetails> response = new Response<UserDetails>();
+		response.setData(new UserDetails());
+		response.setViewName("show-login");
 
 		return response;
 

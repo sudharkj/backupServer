@@ -1,19 +1,18 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
-<c:url value="/insert_user" var="insertUserUrl" />
-<c:url value="/show_login" var="showLoginUrl" />
+<c:url value="/login" var="loginUrl" />
+<c:url value="/show_register" var="showRegisterUrl" />
 
 <div id="container">
-	Register new user:
+	Login:
 	<form:form method="POST" modelAttribute="userDetails"
-		action="${insertUserUrl}">
-		<form:input path="id" type="hidden" />
+		action="${loginUrl}">
 	Username: <form:input path="username" type="text" />
 		<br />
 	Password: <form:input path="password" type="password" />
 		<br />
-		<button>Submit</button>
+		<button disabled="disabled">Submit</button>
 	</form:form>
-	<span>Existing User? <a href="${showLoginUrl}">Login</a></span>
+	<span>New User? <a href="${showRegisterUrl}">Register</a></span>
 </div>
