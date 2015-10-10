@@ -13,7 +13,7 @@
 		<!-- Sets the default project default encoding -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-		<org.springframework.version>4.2.0.RELEASE</org.springframework.version>
+		<org.springframework.version>4.0.2.RELEASE</org.springframework.version>
 		<servlet.version>3.1.0</servlet.version>
 		<jstl.version>1.2</jstl.version>
 		<ejb.version>3.2</ejb.version>
@@ -31,6 +31,20 @@
 	</properties>
 
 	<dependencies>
+
+		<!-- Spring Security Web -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+
+		<!-- Spring Security Configuration -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
 
 		<!-- Spring MVC for Servlet Environments -->
 		<dependency>
