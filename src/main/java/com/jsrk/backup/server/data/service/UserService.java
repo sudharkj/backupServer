@@ -18,4 +18,12 @@ public interface UserService {
 	 */
 	Response<User> insertUser(UserDetails userDetails);
 
+	/**
+	 * Load user by username
+	 * 
+	 * @param username
+	 * @return
+	 */
+	User loadUserByUsername(String username);
+
 }

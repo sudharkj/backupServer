@@ -12,7 +12,7 @@
 		<br />
 	Password: <form:input path="password" type="password" />
 		<br />
-		<button disabled="disabled">Submit</button>
+		<button>Submit</button>
 	</form:form>
 	<span>New User? <a href="${showRegisterUrl}">Register</a></span>
 </div>

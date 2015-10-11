@@ -122,4 +122,10 @@ public class UserServiceImpl implements UserService {
 
 		return response;
 	}
+
+	@Override
+	public User loadUserByUsername(String username) {
+		return userDAO.getUserByUsername(sessionFactory.getCurrentSession(),
+				username);
+	}
 }
