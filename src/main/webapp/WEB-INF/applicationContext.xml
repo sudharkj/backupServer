@@ -61,16 +61,17 @@
 	</aop:config>
 
 	<!-- Enable web security -->
-	<security:http>
+	<security:http use-expressions="true">
 		<security:intercept-url pattern="/show_register"
-			access="isAnonymous()" />
+			access="isAnonymous()" requires-channel="https" />
 		<security:intercept-url pattern="/insert_user"
-			access="isAnonymous()" />
+			access="isAnonymous()" requires-channel="https" />
 		<security:intercept-url pattern="/show_login"
-			access="isAnonymous()" />
+			access="isAnonymous()" requires-channel="https" />
 		<security:intercept-url pattern="/**"
-			access="hasRole('USER')" />
-		<security:form-login login-page="/show_login" />
+			access="hasRole('USER')" requires-channel="https" />
+		<security:form-login login-page="/show_login"
+			default-target-url='/home' always-use-default-target='false' />
 		<security:logout />
 	</security:http>
 
